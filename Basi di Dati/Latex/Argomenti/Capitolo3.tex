@@ -1,0 +1,41 @@
+\chapter{Progettazione logica}
+\section{Schema logico}
+\begin{longtable}{p{0.2\textwidth}p{0.8\textwidth}}\\
+\textbf{Rubrica} &
+(\uline{\textbf{Utente$\_$ID}})\\
+& \\
+\textbf{Contatto} &
+(\uline{Contatto$\_$ID}, Nome, SecondoNome, Cognome, Foto, \uuline{Rubrica$\_$FK})\\
+& \\
+& Rubrica$\_$FK $\rightarrow$ Rubrica.Utente$\_$ID\\
+& \\
+\textbf{Gruppo} &
+(\uline{Gruppo$\_$ID}, Nome, \uuline{Rubrica$\_$FK})\\
+& \\
+& Rubrica$\_$FK $\rightarrow$ Rubrica.Utente$\_$ID\\
+& \\
+\textbf{Account} &
+(\uline{Account$\_$ID}, Fornitore, IndirizzoEmail, FraseStato, Nickname)\\
+& \\
+\textbf{Associa} &
+(\uuline{Contatto$\_$ID}, \uuline{Account$\_$ID})\\
+& 
+Contatto$\_$ID $\rightarrow$ Contatto.Contatto$\_$ID\\
+&
+Account$\_$ID $\rightarrow$ Account.Account$\_$ID\\
+& \\
+\textbf{Email} &
+(\uline{Email$\_$ID}, IndirizzoEmail, Descrizione, \uuline{Contatto$\_$ID})\\
+& \\
+& Contatto$\_$ID $\rightarrow$ Contatto.Contatto$\_$ID\\
+& \\
+\textbf{Indirizzo} &
+(\uline{Indirizzo$\_$ID}, Via, Città, CAP, Nazione, Tipo, \uuline{Contatto$\_$ID})\\
+& \\
+& Contatto$\_$ID $\rightarrow$ Contatto.Contatto$\_$ID\\
+& \\
+\textbf{Telefono} &
+(\uline{Telefono$\_$ID}, Numero, Descrizione, \uuline{Contatto$\_$ID})\\
+& \\
+& Contatto$\_$ID $\rightarrow$ Contatto.Contatto$\_$ID
+\end{longtable}
