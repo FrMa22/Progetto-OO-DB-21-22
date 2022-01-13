@@ -10,7 +10,7 @@ Il Class Diagram non presenta ridondanze da eliminare. Tuttavia, al termine dell
 \subsection{Analisi degli identificativi}
 Potenziali identificativi potrebbero essere gli attributi già presenti nelle classi. La scelta di un \emph{nome} come identificativo, tuttavia, è problematica dal punto di vista implementativo della Base di dati. Usare come identificativo di un contatto il suo nome, anche col secondo nome e cognome, vincolerebbe ogni utente che fa uso di una propria rubrica a evitare nomi che sono stati già scelti anche da contatti che fanno uso della propria rubrica. Problemi logici di questo genere sono risolvibili aggiungendo chiavi tecniche, o \emph{codici}, che fungano da identificativi. Si ragiona diversamente per la classe \Rubrica: è bene che non ci siano ambiguità tra gli utenti che hanno una propria \rubrica, pertanto sarebbe superfluo aggiungere codici. 
 \subsection{Rimozione degli attributi multipli}
-Nella classe \Contatto sono presenti i seguenti attributi multipli: Numeri, Email e Indirizzi. Tali attributi portano informazioni non eliminabili dalla Base di dati, ma possono essere anche aggiunti un numero arbitrario di volte. Queste ragioni sono sufficienti per suggerire la creazione di classi per ciascuno degli attributi multipli. Trattandosi anche di attributi multipli, la discussione è ripresa nella sezione successiva. 
+Nella classe \Contatto sono presenti i seguenti attributi multipli: Numeri, Email e Indirizzi. Tali attributi portano informazioni non eliminabili dalla Base di dati, ma possono essere anche aggiunti un numero arbitrario di volte. Queste ragioni sono sufficienti per suggerire la creazione di classi per ciascuno degli attributi multipli. Trattandosi anche di attributi composti, la discussione è ripresa nella sezione successiva. 
 \subsection{Rimozione degli attributi composti}
 Gli attributi composti coincidono con gli attributi multipli. È naturale l'introduzione di classi per ciascuno degli attributi, con ciascuna classe avente come attributi i campi degli attributi composti. 
 \subsection{Rimozione delle gerarchie}
@@ -19,11 +19,13 @@ La classe \Elemento rappresenta una generalizzazione delle classi \Contatto e \G
 Le associazioni individuate sono essenziali nell'indicare relazioni logiche tra le Entità. Si sceglie di non introdurre partizionamenti oppure accorpamenti.
 \section{Class Diagram ristrutturato}
 {\Huge Foto}
-        
+\clearpage        
 \section{Dizionario delle classi}
 \begin{longtable}{p{0.1\textwidth}p{0.3\textwidth}p{0.5\textwidth}}
 \toprule
-Classe & Descrizione & Attributi                                                                                                                          \\ \midrule
+Classe & Descrizione & Attributi                                                                                                                         
+\\ \midrule
+\endhead
 \textbf{Rubrica} &
 Descrittore delle rubriche aggiunte &
 \verb|Utente_ID (varchar)|: Chiave tecnica. Identifica l’utente proprietario di una rubrica. 
@@ -71,11 +73,13 @@ FraseStato (varchar): frase di benvenuto associata a un account;\newline
 Nickname(varchar): indica il nickname associato a un account.
 \\ \bottomrule
 \end{longtable}
+\clearpage
 \section{Dizionario delle associazioni}
 \begin{longtable}{p{0.3\textwidth}p{0.3\textwidth}p{0.3\textwidth}}
 \toprule
 Associazione & Descrizione & Classi coinvolte
 \\ \midrule
+\endhead
 \textbf{AppartenenzaGruppo} &
 Esprime l'appartenenza di un gruppo a una rubrica &
 Rubrica [1]: indica la rubrica che contiene un gruppo;\newline
@@ -117,3 +121,5 @@ Rubrica [1]: indica la rubrica che contiene un contatto;\newline
 Contatto[0..*]: indica il contatto appartenente a una rubrica.
 \\ \bottomrule
 \end{longtable}
+
+\section{Dizionario dei vincoli}
